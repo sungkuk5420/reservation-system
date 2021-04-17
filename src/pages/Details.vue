@@ -2,19 +2,20 @@
   <q-page class="flex flex-center">
     <div class="details-page">
       <img src="~assets/images/logo.png" alt srcset class="logo">
-      <div class="row justify-center">
+      <div class="row justify-center category-buttons-wrapper">
         <q-btn-toggle
+          class="category-buttons"
           glossy
           v-model="slide"
           :options="[
           { label: '메인메뉴', value: 'category11' },
           { label: '세트메뉴', value: 'category21' },
           { label: '식사메뉴', value: 'category31' },
-          { label: '사이드 메뉴', value: 'wait' },
-          { label: '디저트', value: 'wait' },
-          { label: '음료', value: 'wait' },
-          { label: '어린이메뉴', value: 'wait' },
-          { label: '포장메뉴', value: 'wait' },
+          { label: '사이드 메뉴', value: 'wait1' },
+          { label: '디저트', value: 'wait2' },
+          { label: '음료', value: 'wait3' },
+          { label: '어린이메뉴', value: 'wait4' },
+          { label: '포장메뉴', value: 'wait5' },
         ]"
         />
       </div>
@@ -115,17 +116,32 @@
               <span>{{item.name}}</span>
             </div>
           </q-carousel-slide>
-          <q-carousel-slide name="wait" class="column no-wrap flex-center">
+          <q-carousel-slide name="wait1" class="column no-wrap flex-center">
+            <div>
+              <span>준비중입니다.</span>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide name="wait2" class="column no-wrap flex-center">
+            <div>
+              <span>준비중입니다.</span>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide name="wait3" class="column no-wrap flex-center">
+            <div>
+              <span>준비중입니다.</span>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide name="wait4" class="column no-wrap flex-center">
+            <div>
+              <span>준비중입니다.</span>
+            </div>
+          </q-carousel-slide>
+          <q-carousel-slide name="wait5" class="column no-wrap flex-center">
             <div>
               <span>준비중입니다.</span>
             </div>
           </q-carousel-slide>
         </q-carousel>
-      </div>
-
-      <div class="footer-menu">
-        <q-btn color="white" text-color="black" label="주문 이력"/>
-        <q-btn color="amber" text-color="black" label="점원 호출"/>
       </div>
     </div>
   </q-page>
@@ -215,21 +231,40 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  // justify-content: center;
   align-items: center;
   flex-direction: column;
   flex: none;
+  .category-buttons-wrapper {
+    width: 100%;
+  }
+  .category-buttons {
+    width: 100%;
+    .q-btn {
+      flex: 1;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      background: #443a39 !important;
+      &.bg-primary {
+        background: #ffc107 !important;
+      }
+    }
+  }
 
   .menu-area {
     max-width: 1300px;
-    margin-bottom: auto;
-    margin-bottom: auto;
+    margin-top: auto;
     display: flex;
     align-items: center;
     width: 100%;
     height: 40%;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
     flex-wrap: wrap;
+    flex: none;
+    height: 400px;
     .menu-button {
       width: calc(25%);
       height: 50%;
@@ -245,9 +280,9 @@ export default {
         background: #9f200f;
         border: 1px solid #ddd;
       }
-      &:not(.disabled-button):hover {
+      &:not(.disabled-button):hover span {
         cursor: pointer;
-        transform: scale(1.1);
+        transform: scale(1.2);
       }
       span {
         font-size: 28px;
@@ -259,7 +294,9 @@ export default {
   }
   .q-carousel {
     width: 100%;
+    // height: 500px;
     .q-carousel__slide {
+      padding: 0;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
