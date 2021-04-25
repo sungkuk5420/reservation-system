@@ -1,22 +1,26 @@
 <template>
   <q-page class="flex flex-center">
     <div class="menu-page">
-      <img src="~assets/images/logo.png" alt srcset class="logo">
+      <img src="~assets/images/logo.png" alt srcset class="logo" />
       <div class="menu-area">
         <div
           class="menu-button"
-          v-for="(item,index) in menu"
+          v-for="(item, index) in menu"
           :key="index"
           @click="moveDetail()"
-          :style="'background-image:url('+getURL('images/main/'+item.index+'.png')+');background-repeat: no-repeat;background-position: center center; background-size:100% 100%;'"
+          :style="
+            'background-image:url(' +
+            getURL('images/main/' + item.index + '.png') +
+            ');background-repeat: no-repeat;background-position: center center; background-size:100% 100%;'
+          "
         >
-          <span>{{item.name}}</span>
+          <span>{{ item.name }}</span>
         </div>
       </div>
 
       <div class="footer-menu">
-        <q-btn color="white" text-color="black" label="주문 이력"/>
-        <q-btn color="amber" text-color="black" label="점원 호출"/>
+        <q-btn class="bg-white" text-color="black" label="주문 이력" />
+        <q-btn class="bg-yellow" text-color="black" label="점원 호출" />
       </div>
     </div>
   </q-page>
@@ -35,8 +39,8 @@ export default {
         { name: "디저트", index: 5 },
         { name: "음료", index: 6 },
         { name: "어린이메뉴", index: 7 },
-        { name: "포장메뉴", index: 8 }
-      ]
+        { name: "포장메뉴", index: 8 },
+      ],
     };
   },
   methods: {
@@ -46,8 +50,8 @@ export default {
     },
     getURL(url) {
       return require("assets/" + url);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -90,7 +94,6 @@ export default {
       background: center;
       border-radius: 10px;
       border: 1px solid #ddd;
-      background: #9f200f;
       &:hover {
         cursor: pointer;
         transform: scale(1.1);
